@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Floating Cart Icon -->
+  <div class="cart-floating">
+    <a href="cart.html" title="View Cart">
+      🛍️ Cart <span id="cart-count">0</span>
+    </a>
+  </div>
+
+  <!-- Announcement Bar -->
   <div class="announcement-bar">
     <marquee behavior="scroll" direction="left">🎉 Welcome to KR Jewels by Ridham — Affordable, Skin-Friendly, Long-Lasting Jewellery 🎉</marquee>
   </div>
@@ -17,20 +25,12 @@
       <h1 style="margin: 0; font-size: 2em; color: #b3568d;">KR JEWELS by Ridham</h1>
     </div>
 
-    <nav class="main-nav">
+    <nav class="main-nav" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
       <a href="about.html">Our Story</a>
       <a href="contact.html">Contact</a>
     </nav>
-
-    <div style="text-align: right; padding: 5px 20px;">
-      <a href="cart.html" style="text-decoration: none;">
-        <span style="background-color: #c96d85; color: white; padding: 6px 12px; border-radius: 20px; font-weight: bold; font-size: 14px;">
-          🛍️ Cart <span id="cart-count">0</span>
-        </span>
-      </a>
-    </div>
 
     <div class="category-bar">
       <a href="#" onclick="filterProducts('all'); return false;">All</a>
@@ -47,7 +47,7 @@
 
   <main>
     <div class="products" id="product-grid">
-      <!-- Products from products.json will load here -->
+      <!-- Products from products.json will be loaded here -->
     </div>
   </main>
 

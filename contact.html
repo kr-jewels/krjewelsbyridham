@@ -14,14 +14,12 @@
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.05);
     }
-
     .contact-section h2 {
       text-align: center;
       color: #b3568d;
       margin-bottom: 20px;
       font-size: 2em;
     }
-
     .contact-section input,
     .contact-section textarea {
       width: 100%;
@@ -30,7 +28,6 @@
       border: 1px solid #ccc;
       border-radius: 6px;
     }
-
     .contact-section button {
       padding: 10px 20px;
       background-color: #c96d85;
@@ -40,13 +37,18 @@
       font-weight: bold;
       cursor: pointer;
     }
-
     .contact-section button:hover {
       opacity: 0.9;
     }
   </style>
 </head>
 <body>
+  <div class="cart-floating">
+    <a href="cart.html" title="View Cart">
+      🍭 Cart <span id="cart-count">0</span>
+    </a>
+  </div>
+
   <div class="announcement-bar">
     <marquee behavior="scroll" direction="left">🎉 Welcome to KR Jewels by Ridham — Affordable, Skin-Friendly, Long-Lasting Jewellery 🎉</marquee>
   </div>
@@ -57,20 +59,12 @@
       <h1 style="margin: 0; font-size: 2em; color: #b3568d;">KR JEWELS by Ridham</h1>
     </div>
 
-    <nav class="main-nav">
+    <nav class="main-nav" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
       <a href="about.html">Our Story</a>
       <a href="contact.html">Contact</a>
     </nav>
-
-    <div style="text-align: right; padding: 5px 20px;">
-      <a href="cart.html" style="text-decoration: none;">
-        <span style="background-color: #c96d85; color: white; padding: 6px 12px; border-radius: 20px; font-weight: bold; font-size: 14px;">
-          🛍️ Cart <span id="cart-count">0</span>
-        </span>
-      </a>
-    </div>
 
     <div class="category-bar">
       <a href="products.html?filter=Bestseller">Bestsellers</a>
