@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Story - KR Jewels</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .about-section {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f9f7f8;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      font-size: 17px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .about-section h2 {
+      text-align: center;
+      color: #b3568d;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+
+    .about-section p {
+      margin-bottom: 20px;
+    }
+
+    .about-section em {
+      color: #b3568d;
+      font-style: normal;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement-bar">
+    <marquee behavior="scroll" direction="left">🎉 Welcome to KR Jewels by Ridham — Affordable, Skin-Friendly, Long-Lasting Jewellery 🎉</marquee>
+  </div>
+
+  <header>
+    <div class="branding-bar" style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
+      <img src="KR%20by%20ridham%20logo.jpg" alt="KR Jewels Logo" style="height: 150px; width: 150px; object-fit: contain;" />
+      <h1 style="margin: 0; font-size: 2em; color: #b3568d;">KR JEWELS by Ridham</h1>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">Our Story</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div style="text-align: right; padding: 5px 20px;">
+      <a href="cart.html" style="text-decoration: none;">
+        <span style="background-color: #c96d85; color: white; padding: 6px 12px; border-radius: 20px; font-weight: bold; font-size: 14px;">
+          🛍️ Cart <span id="cart-count">0</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="category-bar">
+      <a href="products.html?filter=Bestseller">Bestsellers</a>
+      <a href="products.html?filter=New Release">New Releases</a>
+      <a href="products.html?filter=Discount">Discounts</a>
+      <a href="products.html?filter=Bracelets">Bracelets</a>
+      <a href="products.html?filter=Earrings">Earrings</a>
+      <a href="products.html?filter=Pendants">Pendants</a>
+      <a href="products.html?filter=Gold-Plated">Gold-Plated</a>
+      <a href="products.html?filter=Anti-Tarnish">Anti-Tarnish</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="about-section">
+      <h2>Our Story</h2>
+      <p>
+        Sometimes, the universe brings two people together not just to share a journey — but to create one.
+      </p>
+      <p>
+        <em>KR Jewels by Ridham</em> was born when two hearts, filled with dreams and creativity, decided to walk the same path. One step at a time, side by side, they shaped a brand that stands for elegance, emotion, and authenticity.
+      </p>
+      <p>
+        We don't just sell jewellery — we tell stories. Stories of love, of strength, of individuality. Every piece we offer is chosen with care, tested for comfort, and designed to reflect the brilliance that every person carries within.
+      </p>
+      <p>
+        From long-lasting gold-plated beauty to skin-friendly anti-tarnish sparkle — <em>KR Jewels by Ridham</em> is our soul, our craft, and our commitment to you.
+      </p>
+      <p>
+        We proudly serve both <strong>wholesale and retail</strong> customers — whether you're shopping for yourself or your business, we’re here with trusted quality and timeless designs.
+      </p>
+      <p>
+        Thank you for being part of the <strong>KR Jewels family</strong>. 💖
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      📞 Call us: 8290069395 | 💬 <a href="https://wa.me/918290069395" target="_blank">WhatsApp</a> |
+      📸 <a href="https://instagram.com/kr_jewelsbyridham" target="_blank">Instagram</a> |
+      ✉️ <a href="mailto:kr.jewels.byridham@gmail.com">Email us</a><br/>
+      © 2025 KR Jewels by Ridham. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('krjewels_cart')) || [];
+    document.getElementById("cart-count").textContent = cart.length;
+  </script>
+</body>
+</html>

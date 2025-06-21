@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UPI Payment - KR Jewels</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .payment-section {
+      max-width: 500px;
+      margin: 50px auto;
+      text-align: center;
+      padding: 20px;
+      background-color: #fdf7f9;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .payment-section h2 {
+      color: #b3568d;
+      margin-bottom: 20px;
+    }
+    .payment-section img {
+      width: 250px;
+      margin: 10px auto;
+    }
+    .payment-section input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .payment-section button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #c96d85;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .payment-section button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating cart icon -->
+  <div class="cart-floating">
+    <a href="cart.html" title="View Cart">
+      🛍️ Cart <span id="cart-count">0</span>
+    </a>
+  </div>
+
+  <!-- Announcement -->
+  <div class="announcement-bar">
+    <marquee behavior="scroll" direction="left">
+      🎉 Complete your payment to confirm your KR Jewels order 🎉
+    </marquee>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="branding-bar" style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
+      <img src="KR%20by%20ridham%20logo.jpg" alt="KR Jewels Logo" style="height: 150px; width: 150px; object-fit: contain;" />
+      <h1 style="margin: 0; font-size: 2em; color: #b3568d;">KR JEWELS by Ridham</h1>
+    </div>
+
+    <nav class="main-nav" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">Our Story</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="category-bar">
+      <a href="products.html?filter=Bestseller">Bestsellers</a>
+      <a href="products.html?filter=New Release">New Releases</a>
+      <a href="products.html?filter=Discount">Discounts</a>
+      <a href="products.html?filter=Bracelets">Bracelets</a>
+      <a href="products.html?filter=Earrings">Earrings</a>
+      <a href="products.html?filter=Pendants">Pendants</a>
+      <a href="products.html?filter=Gold-Plated">Gold-Plated</a>
+      <a href="products.html?filter=Anti-Tarnish">Anti-Tarnish</a>
+    </div>
+  </header>
+
+  <!-- Payment Content -->
+  <main>
+    <div class="payment-section">
+      <h2>Scan to Pay</h2>
+      <img src="qr.jpg" alt="UPI QR Code" />
+      <input type="text" id="refNumber" placeholder="Enter Payment Reference Number" />
+      <button onclick="submitPayment()">Submit Payment</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      📞 Call us: 8290069395 |
+      💬 <a href="https://wa.me/918290069395" target="_blank">WhatsApp</a> |
+      📸 <a href="https://instagram.com/kr_jewelsbyridham" target="_blank">Instagram</a> |
+      ✉️ <a href="mailto:kr.jewels.byridham@gmail.com">Email us</a><br/>
+      © 2025 KR Jewels by Ridham. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const cart = JSON.parse(localStorage.getItem("krjewels_cart_backup")) || [];
+    const name = localStorage.getItem("krjewels_customer_name") || "-";
+    const address = localStorage.getItem("krjewels_customer_address") || "-";
+    const email = localStorage.getItem("krjewels_customer_email") || "-";
+    const contact = localStorage.getItem("krjewels_customer_contact") || "-";
+
+    document.getElementById("cart-count").textContent = "0";
+
+    function submitPayment() {
+      const ref = document.getElementById("refNumber").value.trim();
+      if (!ref) {
+        alert("Please enter the payment reference number.");
+        return;
+      }
+
+      localStorage.setItem("krjewels_payment_reference", ref);
+
+      let message = `*New Paid Order - KR Jewels*\n`;
+      message += `*Name:* ${name}\n*Contact:* ${contact}\n*Address:* ${address}\n`;
+      if (email) message += `*Email:* ${email}\n`;
+      message += `*Payment Reference:* ${ref}\n\n*Order Details:*\n`;
+
+      let total = 0;
+      cart.forEach(item => {
+        const qty = item.quantity || 1;
+        const subtotal = qty * item.price;
+        total += subtotal;
+        message += `- ${item.name} (₹${item.price} x ${qty}) = ₹${subtotal}\n`;
+      });
+
+      message += `\nSubtotal: ₹${total}\nShipping: ₹60\nTotal: ₹${total + 60}`;
+
+      const sellerLink = `https://wa.me/918290069395?text=${encodeURIComponent(message)}`;
+      const customerLink = `https://wa.me/91${contact}?text=${encodeURIComponent(message)}`;
+
+      // Send to seller
+      window.open(sellerLink, '_blank');
+
+      // Send to customer
+      window.open(customerLink, '_blank');
+
+      // Redirect to thank you
+      setTimeout(() => window.location.href = "thankyou.html", 2000);
+    }
+  </script>
+</body>
+</html>

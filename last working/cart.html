@@ -11,21 +11,25 @@
       margin: 20px auto;
       border-collapse: collapse;
     }
+
     .cart-table th, .cart-table td {
       border: 1px solid #ddd;
       padding: 10px;
       text-align: center;
     }
+
     .cart-table img {
       width: 50px;
       height: 50px;
       object-fit: cover;
       border-radius: 5px;
     }
+
     .form-section {
       width: 90%;
       margin: 20px auto;
     }
+
     .form-section input, .form-section textarea {
       width: 100%;
       padding: 10px;
@@ -33,12 +37,14 @@
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+
     .total-summary {
       text-align: right;
       margin: 20px 5%;
       font-size: 18px;
       font-weight: bold;
     }
+
     .order-button {
       display: inline-block;
       padding: 10px 20px;
@@ -49,39 +55,37 @@
       font-size: 16px;
       cursor: pointer;
     }
+
     .order-button:hover {
       opacity: 0.9;
     }
   </style>
 </head>
 <body>
-  <!-- Floating cart icon -->
-  <div class="cart-floating">
-    <a href="cart.html" title="View Cart">
-      🛍️ Cart <span id="cart-count">0</span>
-    </a>
-  </div>
-
-  <!-- Announcement -->
   <div class="announcement-bar">
-    <marquee behavior="scroll" direction="left">
-      🎉 Welcome to KR Jewels by Ridham — Affordable, Skin-Friendly, Long-Lasting Jewellery 🎉
-    </marquee>
+    <marquee behavior="scroll" direction="left">🎉 Welcome to KR Jewels by Ridham — Free Shipping on Orders Above ₹999 🎉</marquee>
   </div>
 
-  <!-- Header -->
   <header>
     <div class="branding-bar" style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
       <img src="KR%20by%20ridham%20logo.jpg" alt="KR Jewels Logo" style="height: 150px; width: 150px; object-fit: contain;" />
       <h1 style="margin: 0; font-size: 2em; color: #b3568d;">KR JEWELS by Ridham</h1>
     </div>
 
-    <nav class="main-nav" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <nav class="main-nav">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
-      <a href="about.html">Our Story</a>
+      <a href="our-story.html">Our Story</a>
       <a href="contact.html">Contact</a>
     </nav>
+
+    <div style="text-align: right; padding: 5px 20px;">
+      <a href="cart.html" style="text-decoration: none;">
+        <span style="background-color: #c96d85; color: white; padding: 6px 12px; border-radius: 20px; font-weight: bold; font-size: 14px;">
+          🛍️ Cart <span id="cart-count">0</span>
+        </span>
+      </a>
+    </div>
 
     <div class="category-bar">
       <a href="products.html?filter=Bestseller">Bestsellers</a>
@@ -95,7 +99,6 @@
     </div>
   </header>
 
-  <!-- Cart Table -->
   <main>
     <table class="cart-table" id="cart-table">
       <thead>
@@ -126,115 +129,164 @@
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p>
-      📞 Call us: 8290069395 |
-      💬 <a href="https://wa.me/918290069395" target="_blank">WhatsApp</a> |
+      📞 Call us: 8290069395 | 💬 <a href="https://wa.me/918290069395" target="_blank">WhatsApp</a> |
       📸 <a href="https://instagram.com/kr_jewelsbyridham" target="_blank">Instagram</a> |
       ✉️ <a href="mailto:kr.jewels.byridham@gmail.com">Email us</a><br/>
       © 2025 KR Jewels by Ridham. All rights reserved.
     </p>
   </footer>
 
-  <!-- Script -->
   <script>
     let cart = JSON.parse(localStorage.getItem('krjewels_cart')) || [];
 
-    function updateCart() {
-      const tbody = document.querySelector("#cart-table tbody");
-      const summary = document.getElementById("summary");
-      tbody.innerHTML = "";
-      let total = 0;
+    function updateCartCount() {
+      document.getElementById("cart-count").textContent = cart.length;
+    }
 
-      cart.forEach((item, index) => {
-        const subtotal = item.price * (item.quantity || 1);
+    function renderCart() {
+      const tbody = document.querySelector("#cart-table tbody");
+      tbody.innerHTML = "";
+
+      const itemMap = {};
+      cart.forEach(item => {
+        if (!itemMap[item.name]) {
+          itemMap[item.name] = { ...item, qty: 1 };
+        } else {
+          itemMap[item.name].qty += 1;
+        }
+      });
+
+      let total = 0;
+      Object.values(itemMap).forEach(item => {
+        const subtotal = item.qty * item.price;
         total += subtotal;
         tbody.innerHTML += `
           <tr>
-            <td><img src="${item.image}" /></td>
+            <td><img src="${item.image}" alt="${item.name}"></td>
             <td>${item.name}</td>
             <td>₹${item.price}</td>
             <td>
-              <button onclick="changeQty(${index}, -1)">-</button>
-              ${item.quantity || 1}
-              <button onclick="changeQty(${index}, 1)">+</button>
+              <button onclick="changeQty('${item.name}', -1)">-</button>
+              ${item.qty}
+              <button onclick="changeQty('${item.name}', 1)">+</button>
             </td>
             <td>₹${subtotal}</td>
-            <td><button onclick="removeItem(${index})">Remove</button></td>
+            <td><button onclick="removeItem('${item.name}')">Remove</button></td>
           </tr>
         `;
       });
 
-      summary.textContent = `Total: ₹${total} + ₹60 shipping = ₹${total + 60}`;
-      document.getElementById("cart-count").textContent = cart.length;
+      const shipping = total > 0 ? 50 : 0;
+      const grandTotal = total + shipping;
+
+      document.getElementById("summary").innerHTML = `
+        Product Total: ₹${total} <br>
+        Shipping: ₹${shipping} <br>
+        <strong>Total: ₹${grandTotal}</strong>
+      `;
     }
 
-    function changeQty(index, delta) {
-      cart[index].quantity = (cart[index].quantity || 1) + delta;
-      if (cart[index].quantity <= 0) cart.splice(index, 1);
-      localStorage.setItem("krjewels_cart", JSON.stringify(cart));
-      updateCart();
-    }
-
-    function removeItem(index) {
-      cart.splice(index, 1);
-      localStorage.setItem("krjewels_cart", JSON.stringify(cart));
-      updateCart();
-    }
-
-    function placeOrder() {
-      const name = document.getElementById("name").value.trim();
-      const address = document.getElementById("address").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const contact = document.getElementById("contact").value.trim();
-
-      if (!name || !address || !contact) {
-        alert("Please fill in name, address and contact number.");
-        return;
+    function changeQty(name, delta) {
+      const index = cart.findIndex(p => p.name === name);
+      if (index > -1 && (delta > 0 || cart.filter(p => p.name === name).length > 1)) {
+        if (delta > 0) {
+          cart.push(cart[index]);
+        } else {
+          const idxToRemove = cart.findIndex(p => p.name === name);
+          cart.splice(idxToRemove, 1);
+        }
+        localStorage.setItem('krjewels_cart', JSON.stringify(cart));
+        renderCart();
+        updateCartCount();
       }
+    }
 
-      let message = `*New Order from KR Jewels Website*\n`;
-      message += `*Name:* ${name}\n*Contact:* ${contact}\n*Address:* ${address}\n`;
-      if (email) message += `*Email:* ${email}\n`;
-      message += `\n*Order Details:*\n`;
-
-      let total = 0;
-      cart.forEach(item => {
-        const qty = item.quantity || 1;
-        const subtotal = qty * item.price;
-        total += subtotal;
-        message += `- ${item.name} (₹${item.price} x ${qty}) = ₹${subtotal}\n`;
-      });
-      message += `\nSubtotal: ₹${total}\nShipping: ₹60\nTotal: ₹${total + 60}`;
-
-      const whatsappURL = `https://wa.me/918290069395?text=${encodeURIComponent(message)}`;
-      window.location.href = whatsappURL;
-      localStorage.removeItem("krjewels_cart");
-      setTimeout(() => window.location.href = "thankyou.html", 1000);
+    function removeItem(name) {
+      cart = cart.filter(p => p.name !== name);
+      localStorage.setItem('krjewels_cart', JSON.stringify(cart));
+      renderCart();
+      updateCartCount();
     }
 
     function checkout() {
       const name = document.getElementById("name").value.trim();
       const address = document.getElementById("address").value.trim();
-      const email = document.getElementById("email").value.trim();
       const contact = document.getElementById("contact").value.trim();
 
       if (!name || !address || !contact) {
-        alert("Please fill in name, address and contact number.");
+        alert("Please fill all required fields before checkout.");
         return;
       }
 
-      localStorage.setItem('krjewels_customer_name', name);
-      localStorage.setItem('krjewels_customer_address', address);
-      localStorage.setItem('krjewels_customer_email', email);
-      localStorage.setItem('krjewels_customer_contact', contact);
-      localStorage.setItem('krjewels_cart_backup', JSON.stringify(cart));
+      localStorage.setItem("krjewels_name", name);
+      localStorage.setItem("krjewels_address", address);
+      localStorage.setItem("krjewels_contact", contact);
 
-      window.location.href = "payment.html";
+      window.location.href = "thankyou.html";
     }
 
-    updateCart();
+    function placeOrder() {
+      const name = document.getElementById("name").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+      const email = document.getElementById("email").value.trim();
+
+      if (!name || !address || !contact) {
+        alert("Please fill all required fields.");
+        return;
+      }
+
+      const itemMap = {};
+      let total = 0;
+      cart.forEach(item => {
+        if (!itemMap[item.name]) {
+          itemMap[item.name] = { ...item, qty: 1 };
+        } else {
+          itemMap[item.name].qty += 1;
+        }
+      });
+
+      let message = `Order from ${name}\nContact: ${contact}\n${email ? 'Email: ' + email + '\n' : ''}Address: ${address}\n\nItems:\n`;
+      Object.values(itemMap).forEach(item => {
+        const subtotal = item.qty * item.price;
+        total += subtotal;
+        message += `• ${item.name} x${item.qty} = ₹${subtotal}\n`;
+      });
+
+      const shipping = total > 0 ? 50 : 0;
+      const grandTotal = total + shipping;
+      message += `\nShipping: ₹${shipping}\nTotal: ₹${grandTotal}`;
+
+      localStorage.setItem("krjewels_name", name);
+      localStorage.setItem("krjewels_address", address);
+      localStorage.setItem("krjewels_contact", contact);
+
+      const encodedMsg = encodeURIComponent(message);
+
+      // Send to seller
+      const sellerURL = `https://wa.me/918290069395?text=${encodedMsg}`;
+      window.open(sellerURL, "_blank");
+
+      // Send to customer (if contact given)
+      if (contact.length >= 10) {
+        const customerURL = `https://wa.me/91${contact}?text=${encodedMsg}`;
+        setTimeout(() => {
+          window.open(customerURL, "_blank");
+        }, 800);
+      }
+
+      // Redirect to Thank You page
+      setTimeout(() => {
+        window.location.href = "thankyou.html";
+      }, 1200);
+    }
+
+    window.onload = () => {
+      renderCart();
+      updateCartCount();
+    };
   </script>
 </body>
 </html>

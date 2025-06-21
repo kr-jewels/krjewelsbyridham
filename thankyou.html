@@ -6,53 +6,177 @@
   <title>Thank You - KR Jewels</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .thankyou-container {
-      text-align: center;
-      padding: 50px 20px;
+    .summary-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-
-    .thankyou-container h1 {
+    .summary-container h2 {
       color: #b3568d;
-      font-size: 2em;
-      margin-bottom: 10px;
+      text-align: center;
     }
-
-    .thankyou-container p {
-      font-size: 1.1em;
-      color: #333;
+    .summary-container p {
+      margin: 5px 0;
     }
-
-    .thankyou-container a {
-      display: inline-block;
+    .summary-container table {
+      width: 100%;
       margin-top: 20px;
-      padding: 10px 20px;
+      border-collapse: collapse;
+    }
+    .summary-container th, .summary-container td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    .summary-container .total {
+      font-weight: bold;
+      font-size: 1.1em;
+      text-align: right;
+      margin-top: 10px;
+    }
+    .print-button {
+      display: block;
+      margin: 20px auto;
       background-color: #c96d85;
       color: white;
-      text-decoration: none;
-      border-radius: 20px;
-      font-weight: bold;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
     }
-
-    .thankyou-container a:hover {
+    .print-button:hover {
       opacity: 0.9;
     }
   </style>
 </head>
 <body>
-  <div class="announcement-bar">
-    <marquee behavior="scroll" direction="left">🎉 Thank you for shopping with KR Jewels by Ridham! 🎉</marquee>
+  <!-- Floating cart icon -->
+  <div class="cart-floating">
+    <a href="cart.html" title="View Cart">
+      🛍️ Cart <span id="cart-count">0</span>
+    </a>
   </div>
 
-  <div class="thankyou-container">
-    <h1>Thank You for Your Order!</h1>
-    <p>We’ve received your order and will be in touch shortly via WhatsApp.</p>
-    <p>We truly appreciate your support for our small business. 💖</p>
-    <a href="index.html">Continue Shopping</a>
+  <!-- Announcement -->
+  <div class="announcement-bar">
+    <marquee behavior="scroll" direction="left">
+      🎉 Thank you for shopping with KR Jewels by Ridham 🎉
+    </marquee>
   </div>
+
+  <!-- Header -->
+  <header>
+    <div class="branding-bar" style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
+      <img src="KR%20by%20ridham%20logo.jpg" alt="KR Jewels Logo" style="height: 150px; width: 150px; object-fit: contain;" />
+      <h1 style="margin: 0; font-size: 2em; color: #b3568d;">KR JEWELS by Ridham</h1>
+    </div>
+
+    <nav class="main-nav" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">Our Story</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="category-bar">
+      <a href="products.html?filter=Bestseller">Bestsellers</a>
+      <a href="products.html?filter=New Release">New Releases</a>
+      <a href="products.html?filter=Discount">Discounts</a>
+      <a href="products.html?filter=Bracelets">Bracelets</a>
+      <a href="products.html?filter=Earrings">Earrings</a>
+      <a href="products.html?filter=Pendants">Pendants</a>
+      <a href="products.html?filter=Gold-Plated">Gold-Plated</a>
+      <a href="products.html?filter=Anti-Tarnish">Anti-Tarnish</a>
+    </div>
+  </header>
+
+  <!-- Thank You Content -->
+  <main>
+    <div class="summary-container" id="receipt">
+      <h2>🎉 Thank You for Your Order!</h2>
+      <p><strong>Order Number:</strong> <span id="order-number"></span></p>
+      <p><strong>Name:</strong> <span id="customer-name"></span></p>
+      <p><strong>Address:</strong> <span id="customer-address"></span></p>
+      <p><strong>Email:</strong> <span id="customer-email"></span></p>
+      <p><strong>Contact:</strong> <span id="customer-contact"></span></p>
+      <p><strong>Payment Reference No:</strong> <span id="payment-ref"></span></p>
+
+      <table id="product-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p class="total" id="total-amount"></p>
+
+      <button class="print-button" onclick="window.print()">🖨️ Print Receipt</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      📞 Call us: 8290069395 |
+      💬 <a href="https://wa.me/918290069395" target="_blank">WhatsApp</a> |
+      📸 <a href="https://instagram.com/kr_jewelsbyridham" target="_blank">Instagram</a> |
+      ✉️ <a href="mailto:kr.jewels.byridham@gmail.com">Email us</a><br/>
+      © 2025 KR Jewels by Ridham. All rights reserved.
+    </p>
+  </footer>
 
   <script>
-    // Optionally clear the cart
-    localStorage.removeItem('krjewels_cart');
+    const name = localStorage.getItem("krjewels_customer_name") || "-";
+    const address = localStorage.getItem("krjewels_customer_address") || "-";
+    const email = localStorage.getItem("krjewels_customer_email") || "-";
+    const contact = localStorage.getItem("krjewels_customer_contact") || "-";
+    const ref = localStorage.getItem("krjewels_payment_reference") || "-";
+    const cart = JSON.parse(localStorage.getItem("krjewels_cart_backup")) || [];
+
+    document.getElementById("customer-name").textContent = name;
+    document.getElementById("customer-address").textContent = address;
+    document.getElementById("customer-email").textContent = email;
+    document.getElementById("customer-contact").textContent = contact;
+    document.getElementById("payment-ref").textContent = ref;
+
+    // Generate order number from initials + contact
+    const initials = name.split(" ").map(w => w[0]).join("").toUpperCase();
+    const digits = contact.slice(-4);
+    document.getElementById("order-number").textContent = initials + digits;
+
+    // Fill product table
+    const tbody = document.querySelector("#product-table tbody");
+    let total = 0;
+    cart.forEach(item => {
+      const qty = item.quantity || 1;
+      const subtotal = item.price * qty;
+      total += subtotal;
+      tbody.innerHTML += `
+        <tr>
+          <td>${item.name}</td>
+          <td>₹${item.price}</td>
+          <td>${qty}</td>
+          <td>₹${subtotal}</td>
+        </tr>
+      `;
+    });
+    total += 60;
+    document.getElementById("total-amount").textContent = `Total: ₹${total} (including ₹60 shipping)`;
+
+    // Clear cart backup
+    localStorage.removeItem("krjewels_cart_backup");
+    localStorage.removeItem("krjewels_payment_reference");
+
+    // Update cart count to 0
+    document.getElementById("cart-count").textContent = "0";
   </script>
 </body>
 </html>

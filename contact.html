@@ -3,41 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us - KR Jewels</title>
+  <title>Thank You - KR Jewels</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .contact-section {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: #f9f7f8;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
-    }
-    .contact-section h2 {
+    .thankyou {
       text-align: center;
+      padding: 50px;
+    }
+    .thankyou h2 {
       color: #b3568d;
-      margin-bottom: 20px;
       font-size: 2em;
     }
-    .contact-section input,
-    .contact-section textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+    .order-summary {
+      max-width: 700px;
+      margin: 30px auto;
+      background: #f9f7f8;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      text-align: left;
     }
-    .contact-section button {
+    .order-summary h3 {
+      margin-bottom: 10px;
+      color: #b3568d;
+    }
+    .order-summary pre {
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .btn-print {
+      margin-top: 20px;
       padding: 10px 20px;
-      background-color: #c96d85;
-      color: white;
       border: none;
-      border-radius: 25px;
+      background: #c96d85;
+      color: white;
       font-weight: bold;
+      border-radius: 25px;
       cursor: pointer;
     }
-    .contact-section button:hover {
+    .btn-print:hover {
       opacity: 0.9;
     }
   </style>
@@ -50,7 +56,7 @@
   </div>
 
   <div class="announcement-bar">
-    <marquee behavior="scroll" direction="left">🎉 Welcome to KR Jewels by Ridham — Affordable, Skin-Friendly, Long-Lasting Jewellery 🎉</marquee>
+    <marquee behavior="scroll" direction="left">🎉 Thank you for shopping with KR Jewels by Ridham! 🎉</marquee>
   </div>
 
   <header>
@@ -79,20 +85,15 @@
   </header>
 
   <main>
-    <section class="contact-section">
-      <h2>Contact Us</h2>
-      <form>
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="text" name="subject" placeholder="Subject" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <p style="text-align: center; margin-top: 15px;">
-        📞 Call/WhatsApp: <a href="https://wa.me/918290069395" target="_blank">+91-8290069395</a><br/>
-        📧 Email: <a href="mailto:kr.jewels.byridham@gmail.com">kr.jewels.byridham@gmail.com</a>
-      </p>
-    </section>
+    <div class="thankyou">
+      <h2>Thank You for Your Order!</h2>
+      <p>Your jewellery is on its way ✨</p>
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <pre id="receipt"></pre>
+        <button class="btn-print" onclick="window.print()">🧾 Print Receipt</button>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -105,8 +106,29 @@
   </footer>
 
   <script>
-    let cart = JSON.parse(localStorage.getItem('krjewels_cart')) || [];
-    document.getElementById("cart-count").textContent = cart.length;
+    const cart = JSON.parse(localStorage.getItem('krjewels_cart_backup')) || [];
+    const name = localStorage.getItem('krjewels_customer_name') || 'Customer';
+    const address = localStorage.getItem('krjewels_customer_address') || '';
+    const contact = localStorage.getItem('krjewels_customer_contact') || '';
+    const email = localStorage.getItem('krjewels_customer_email') || '';
+    const receipt = document.getElementById("receipt");
+
+    let total = 0;
+    let summary = `Order No: ${name.split(' ').map(w => w[0]).join('').toUpperCase()}${contact.slice(-4)}\n`;
+    summary += `Name: ${name}\nContact: ${contact}\nAddress: ${address}\n`;
+    if (email) summary += `Email: ${email}\n`;
+    summary += `\nItems:\n`;
+
+    cart.forEach(item => {
+      const qty = item.quantity || 1;
+      const subtotal = item.price * qty;
+      total += subtotal;
+      summary += `- ${item.name} (₹${item.price} x ${qty}) = ₹${subtotal}\n`;
+    });
+    summary += `\nSubtotal: ₹${total}\nShipping: ₹60\nTotal: ₹${total + 60}`;
+
+    receipt.textContent = summary;
+    document.getElementById("cart-count").textContent = 0;
   </script>
 </body>
 </html>
