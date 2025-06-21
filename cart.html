@@ -157,7 +157,7 @@
         `;
       });
 
-      summary.textContent = `Total: ₹${total} + ₹40 shipping = ₹${total + 40}`;
+      summary.textContent = `Total: ₹${total} + ₹60 shipping = ₹${total + 60}`;
       document.getElementById("cart-count").textContent = cart.length;
     }
 
@@ -197,7 +197,10 @@
         total += subtotal;
         message += `- ${item.name} (₹${item.price} x ${qty}) = ₹${subtotal}\n`;
       });
-      message += `\nSubtotal: ₹${total}\nShipping: ₹40\nTotal: ₹${total + 40}`;
+      message += `
+Subtotal: ₹${total}
+Shipping: ₹60
+Total: ₹${total + 60}`;
 
       const whatsappURL = `https://wa.me/918290069395?text=${encodeURIComponent(message)}`;
       window.location.href = whatsappURL;
