@@ -292,7 +292,7 @@ header h1 {
 .whatsapp-button {
   display: inline-block;
   margin-top: 8px;
-  background-color: #b3568d; /* your custom color */
+  background-color: #25d366; /* your custom color */
   color: white;
   padding: 6px 10px;
   border-radius: 5px;
@@ -301,7 +301,7 @@ header h1 {
 }
 
 .whatsapp-button:hover {
-  background-color: #9c4271; /* optional darker shade on hover */
+  background-color:#25d366; /* optional darker shade on hover */
   opacity: 0.95;
 }
 
