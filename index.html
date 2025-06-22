@@ -58,20 +58,38 @@
   <main>
     <h2 style="text-align: center; color: #b3568d;">Trending @kr_jewelsbyridham</h2>
     <div class="products">
-      <!-- Sample static product cards -->
+      <!-- Product 1 -->
       <div class="product">
-        <img src="bracelet1.jpg" alt="Bracelet 1">
-        <h3>Golden Spark</h3>
+        <a href="product.html?name=Golden%20Spark">
+          <img src="bracelet1.jpg" alt="Golden Spark">
+        </a>
+        <h3>
+          <a href="product.html?name=Golden%20Spark" style="text-decoration: none; color: inherit;">
+            Golden Spark
+          </a>
+        </h3>
         <p>₹799</p>
         <button onclick="addToCart('Golden Spark', 799, 'bracelet1.jpg')">Add to Cart</button>
-        <a href="https://wa.me/918290069395?text=I'm interested in Golden Spark (₹799)" target="_blank">Order on WhatsApp</a>
+        <a class="whatsapp-button" href="https://wa.me/918290069395?text=I'm interested in Golden Spark (₹799)" target="_blank">
+          Order on WhatsApp
+        </a>
       </div>
+
+      <!-- Product 2 -->
       <div class="product">
-        <img src="bracelet2.jpg" alt="Bracelet 2">
-        <h3>Rust-Free Shine</h3>
+        <a href="product.html?name=Rust-Free%20Shine">
+          <img src="bracelet2.jpg" alt="Rust-Free Shine">
+        </a>
+        <h3>
+          <a href="product.html?name=Rust-Free%20Shine" style="text-decoration: none; color: inherit;">
+            Rust-Free Shine
+          </a>
+        </h3>
         <p>₹899</p>
         <button onclick="addToCart('Rust-Free Shine', 899, 'bracelet2.jpg')">Add to Cart</button>
-        <a href="https://wa.me/918290069395?text=I'm interested in Rust-Free Shine (₹899)" target="_blank">Order on WhatsApp</a>
+        <a class="whatsapp-button" href="https://wa.me/918290069395?text=I'm interested in Rust-Free Shine (₹899)" target="_blank">
+          Order on WhatsApp
+        </a>
       </div>
     </div>
   </main>
@@ -89,12 +107,14 @@
   <!-- Cart Script -->
   <script>
     let cart = JSON.parse(localStorage.getItem('krjewels_cart')) || [];
+
     function addToCart(name, price, image) {
       cart.push({ name, price, image });
       localStorage.setItem('krjewels_cart', JSON.stringify(cart));
       document.getElementById("cart-count").textContent = cart.length;
       alert(`Added "${name}" (₹${price}) to cart.`);
     }
+
     document.getElementById("cart-count").textContent = cart.length;
   </script>
 </body>
