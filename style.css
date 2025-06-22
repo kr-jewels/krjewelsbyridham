@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -76,6 +77,12 @@ header h1 {
   border-radius: 10px;
   padding: 10px;
   background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.product:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
 .product img {
@@ -101,14 +108,17 @@ header h1 {
 }
 
 .product a {
-  display: inline-block;
-  margin-top: 8px;
-  background-color: #25d366;
-  color: white;
-  padding: 6px 10px;
-  border-radius: 5px;
   text-decoration: none;
-  font-size: 14px;
+  color: inherit;
+}
+
+.product a:visited {
+  color: inherit;
+}
+
+.product a img {
+  border: none;
+  background: none;
 }
 
 .product button {
@@ -172,11 +182,11 @@ header h1 {
 }
 
 .stock-label.only-1-left {
-  color: #d35400; /* orange */
+  color: #d35400;
 }
 
 .stock-label.limited-stock {
-  color: #e67e22; /* soft orange */
+  color: #e67e22;
 }
 
 .stock-label.sold-out {
@@ -202,6 +212,83 @@ header h1 {
   text-decoration: none;
 }
 
+.product-detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.product-detail-container img {
+  max-width: 100%;
+  width: 320px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+  flex: 1;
+  min-width: 280px;
+}
+
+.product-info h2 {
+  color: #b3568d;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #333;
+}
+
+.product-info .stock-label {
+  font-weight: bold;
+  color: #d35400;
+}
+
+.product-info button,
+.product-info a {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.product-info button {
+  border: none;
+  background-color: #c96d85;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.product-info .whatsapp-btn {
+  background-color: #25d366;
+  color: white;
+}
+
+.product-info button:hover,
+.product-info .whatsapp-btn:hover {
+  opacity: 0.9;
+}
+
+.product-info .back-link {
+  display: block;
+  margin-top: 20px;
+  color: #b3568d;
+  font-size: 14px;
+}
+
 
 footer p {
   font-size: 0.9em;
@@ -209,6 +296,10 @@ footer p {
 }
 
 @media (max-width: 600px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .product img {
     width: 100%;
     height: auto;

@@ -2,37 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pearl Earrings – KR Jewels by Ridham</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details - KR Jewels</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .product-detail-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .product-detail-container img {
+      max-width: 100%;
+      width: 320px;
+      border-radius: 10px;
+    }
+
+    .product-info {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .product-info h2 {
+      color: #b3568d;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    .product-info p {
+      margin: 10px 0;
+      font-size: 1em;
+    }
+
+    .product-info button,
+    .product-info a {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 16px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .product-info button {
+      border: none;
+      background-color: #c96d85;
+      color: white;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .product-info button:hover,
+    .product-info a:hover {
+      opacity: 0.9;
+    }
+
+    .product-info .whatsapp-btn {
+      background-color: #25d366;
+      color: white;
+    }
+
+    .product-info .back-link {
+      display: block;
+      margin-top: 20px;
+      color: #b3568d;
+    }
+  </style>
 </head>
 <body>
-
-<header>
-  <h1>Pearl Earrings</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="about.html">Our Story</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<section class="products" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;">
-  <div style="flex:1;min-width:300px;padding:20px;text-align:center;">
-    <img src="images/earring2.jpg" alt="Pearl Earrings" style="width:100%;max-width:400px;" />
+  <!-- Floating Cart Icon -->
+  <div class="cart-floating">
+    <a href="cart.html" title="View Cart">
+      🛍️ Cart <span id="cart-count">0</span>
+    </a>
   </div>
-  <div style="flex:1;min-width:300px;padding:20px;">
-    <h2>Pearl Earrings</h2>
-    <p><strong>Price:</strong> ₹299</p>
-    <p>Elegant, anti-tarnish, skin-friendly earrings perfect for casual and festive wear.</p>
-    <button onclick="window.open('https://wa.me/91XXXXXXXXXX?text=I want to order Pearl Earrings from KR Jewels by Ridham','_blank')">Order on WhatsApp</button>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <marquee behavior="scroll" direction="left">
+      🎉 Welcome to KR Jewels by Ridham — Affordable, Skin-Friendly, Long-Lasting Jewellery 🎉
+    </marquee>
   </div>
-</section>
 
-<footer>
-  <p>&copy; 2025 KR Jewels by Ridham</p>
-</footer>
+  <!-- Header -->
+  <header>
+    <div class="branding-bar" style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
+      <img src="KR%20by%20ridham%20logo.jpg" alt="KR Jewels Logo" style="height: 150px; width: 150px; object-fit: contain;" />
+      <h1 style="margin: 0; font-size: 2em; color: #b3568d;">KR JEWELS by Ridham</h1>
+    </div>
 
+    <nav class="main-nav" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">Our Story</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Product Detail Section -->
+  <main style="padding: 20px;">
+    <div id="product-detail" class="product-detail-container"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      📞 Call us: 8290069395 | 💬 <a href="https://wa.me/918290069395" target="_blank">WhatsApp</a> |
+      📸 <a href="https://instagram.com/kr_jewelsbyridham" target="_blank">Instagram</a> |
+      ✉️ <a href="mailto:kr.jewels.byridham@gmail.com">Email us</a><br/>
+      © 2025 KR Jewels by Ridham. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const productName = new URLSearchParams(window.location.search).get('name');
+    const decodedName = decodeURIComponent(productName || '').trim();
+
+    if (!decodedName) {
+      document.getElementById('product-detail').innerHTML = '<p>Product name not provided in URL.</p>';
+      throw new Error("Missing product name in URL");
+    }
+
+    fetch('products.json')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to load products.json');
+        return res.json();
+      })
+      .then(products => {
+        const product = products.find(p => p.name.trim().toLowerCase() === decodedName.toLowerCase());
+
+        if (!product) {
+          document.getElementById('product-detail').innerHTML = '<p>Product not found.</p>';
+          return;
+        }
+
+        document.getElementById('product-detail').innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <div class="product-info">
+            <h2>${product.name}</h2>
+            ${product.originalPrice ? `<p><s style="color: gray;">₹${product.originalPrice}</s></p>` : ''}
+            <p><strong>Price:</strong> ₹${product.price}</p>
+            <p>${product.description || 'No description available.'}</p>
+            <p class="stock-label">${product.stockStatus || ''}</p>
+            <button onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">Add to Cart</button>
+            <a class="whatsapp-btn" href="https://wa.me/918290069395?text=I'm interested in ${product.name} (₹${product.price}). Please confirm availability." target="_blank">
+              Order on WhatsApp
+            </a>
+            <a class="back-link" href="products.html">← Back to Products</a>
+          </div>
+        `;
+      })
+      .catch(error => {
+        console.error("Error loading or matching product:", error);
+        document.getElementById('product-detail').innerHTML = '<p>Error loading product data.</p>';
+      });
+
+    let cart = JSON.parse(localStorage.getItem('krjewels_cart')) || [];
+
+    function addToCart(name, price, image) {
+      cart.push({ name, price, image });
+      localStorage.setItem('krjewels_cart', JSON.stringify(cart));
+      document.getElementById("cart-count").textContent = cart.length;
+      alert(`Added "${name}" (₹${price}) to cart.`);
+    }
+
+    document.getElementById("cart-count").textContent = cart.length;
+  </script>
 </body>
 </html>

@@ -79,10 +79,13 @@
       grid.innerHTML = '';
       products.forEach(p => {
         const stockClass = p.stockStatus ? p.stockStatus.toLowerCase().replace(/\s/g, '-') : '';
+        const encodedName = encodeURIComponent(p.name);
         grid.innerHTML += `
           <div class="product">
-            <img src="${p.image}" alt="${p.name}">
-            <h3>${p.name}</h3>
+            <a href="product.html?name=${encodedName}">
+              <img src="${p.image}" alt="${p.name}">
+            </a>
+            <h3><a href="product.html?name=${encodedName}" style="text-decoration: none; color: inherit;">${p.name}</a></h3>
             <p>
               ${p.originalPrice ? `<s style="color: gray;">₹${p.originalPrice}</s> ` : ''}
               <strong>₹${p.price}</strong>
@@ -92,7 +95,8 @@
               ${p.stockStatus === 'Sold Out' ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''}>
               ${p.stockStatus === 'Sold Out' ? 'Unavailable' : 'Add to Cart'}
             </button>
-            <a href="https://wa.me/918290069395?text=I'm interested in ${p.name} (₹${p.price}). Please confirm availability." 
+            <a class="whatsapp-button" href="https://wa.me/918290069395?text=I'm interested in ${p.name} (₹${p.price}). Please confirm availability." 
+
               target="_blank"
               ${p.stockStatus === 'Sold Out' ? 'style="pointer-events: none; opacity: 0.5;"' : ''}>
               Order on WhatsApp

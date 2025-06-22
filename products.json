@@ -6,7 +6,8 @@
   "image": "bracelet1.jpg",
   "stockStatus": "Only 1 Left",
   "categories": ["Bracelets"],
-  "tags": ["Bestseller", "Discount"]
+  "tags": ["Bestseller", "Discount"],
+  "description": "Elegant gold-toned bracelet perfect for every occasion."
   },
   {
     "name": "Rust-Free Shine",
@@ -14,7 +15,8 @@
     "image": "bracelet2.jpg",
     "stockStatus": "In Stock",
     "categories": ["Bracelets"],
-    "tags": ["Anti-Tarnish", "New Release"]
+    "tags": ["Anti-Tarnish", "New Release"],
+    "description": "Elegant gold-toned bracelet perfect for every occasion."
   },
   {
     "name": "Pearl Drop Earrings",
@@ -22,7 +24,8 @@
     "image": "earring1.jpg",
     "stockStatus": "Limited Stock",
     "categories": ["Earrings"],
-    "tags": ["Gold-Plated"]
+    "tags": ["Gold-Plated"],
+    "description": "Elegant gold-toned bracelet perfect for every occasion."
   },
   {
     "name": "Rose Quartz Pendant",
@@ -30,13 +33,16 @@
     "image": "pendant1.jpg",
     "stockStatus": "Sold Out",
     "categories": ["Pendants"],
-    "tags": ["Discount"]
+    "tags": ["Discount"],
+    "description": "Elegant gold-toned bracelet perfect for every occasion."
+    
   },
   {
     "name": "Royal Gold Cuff",
     "price": 1199,
     "image": "bracelet3.jpg",
     "categories": ["Bracelets"],
-    "tags": ["Gold-Plated", "Bestseller"]
+    "tags": ["Gold-Plated", "Bestseller"],
+    "description": "Elegant gold-toned bracelet perfect for every occasion."
   }
 ]
