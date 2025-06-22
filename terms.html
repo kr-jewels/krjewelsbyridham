@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - KR Jewels</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Floating Cart Icon -->
+  <div class="cart-floating">
+    <a href="cart.html" title="View Cart">
+      🛍️ Cart <span id="cart-count">0</span>
+    </a>
+  </div>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <marquee behavior="scroll" direction="left">
+      🎉 Welcome to KR Jewels by Ridham — Affordable, Skin-Friendly, Long-Lasting Jewellery 🎉
+    </marquee>
+  </div>
+  <!-- Header -->
+  <header>
+    <div class="branding-bar" style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
+      <img src="KR%20by%20ridham%20logo.jpg" alt="KR Jewels Logo" style="height: 150px; width: 150px; object-fit: contain;" />
+      <h1 style="margin: 0; font-size: 2em; color: #b3568d;">KR JEWELS by Ridham</h1>
+    </div>
+    <nav class="main-nav" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">Our Story</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main style="padding: 20px; max-width: 800px; margin: auto;">
+    <h1>Terms of Service</h1>
+    <p>By using our website and placing an order, you agree to the following terms:</p>
+    <ul>
+      <li>All product descriptions are accurate to the best of our ability.</li>
+      <li>We reserve the right to cancel orders due to pricing errors or unforeseen issues.</li>
+      <li>Payments are processed securely via Razorpay.</li>
+      <li>You agree not to misuse or duplicate any content from our site.</li>
+    </ul>
+    <p>These terms are subject to change without prior notice. Continued use implies acceptance of updated terms.</p>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <p style="font-size: 0.9em; color: #777;">
+      📞 Call us: 8290069395 |
+      💬 <a href="https://wa.me/918290069395" target="_blank">WhatsApp</a> |
+      📸 <a href="https://instagram.com/kr_jewelsbyridham" target="_blank">Instagram</a> |
+      ✉️ <a href="mailto:kr.jewels.byridham@gmail.com">Email us</a><br/>
+
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="refund.html">Refund Policy</a> |
+      <a href="terms.html">Terms of Service</a> |
+      <a href="shipping.html">Shipping Policy</a> |
+      <a href="contact.html">Contact</a><br/>
+
+      © 2025 KR Jewels by Ridham. All rights reserved.
+    </p>
+  </footer>
+  <script>
+    let cart = JSON.parse(localStorage.getItem('krjewels_cart')) || [];
+    document.getElementById("cart-count").textContent = cart.length;
+  </script>
+</body>
+</html>

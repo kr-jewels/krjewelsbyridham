@@ -293,7 +293,7 @@ header h1 {
   display: inline-block;
   margin-top: 8px;
   background-color: #25d366; /* your custom color */
-  color: white;
+  color: white !important;
   padding: 6px 10px;
   border-radius: 5px;
   text-decoration: none;
@@ -309,6 +309,16 @@ header h1 {
 footer p {
   font-size: 0.9em;
   color: #777;
+}
+
+footer a {
+  color: #b3568d;
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
