@@ -151,21 +151,34 @@
         </tr>
       `;
     });
-    total += 60;
-    document.getElementById("total-amount").textContent = `Total: ₹${total} (including ₹60 shipping)`;
+    total += 1;
+    document.getElementById("total-amount").textContent = `Total: ₹${total} (including ₹1 shipping)`;
+
+    const emailData = {
+      order_id: ref,
+      to_email: email,
+      name: name,
+      contact: contact,
+      email: email,
+      address: address,
+      orders: items,
+      cost: {
+        shipping: 1,
+        tax: 0,
+        total: total
+      }
+    };
 
     if (email && email.includes("@")) {
-      emailjs.send("service_jgrdhox", "template_cmq7op6", {
-        order_id: ref,
-        to_email: email,
-        orders: items,
-        cost: {
-          shipping: 60,
-          tax: 0,
-          total: total
-        }
-      }).then(() => console.log("Customer email sent"));
+      emailjs.send("service_jgrdhox", "template_cmq7op6", emailData)
+        .then(() => console.log("Customer email sent"));
     }
+
+    // Send to seller always
+    emailjs.send("service_jgrdhox", "template_cmq7op6", {
+      ...emailData,
+      to_email: "kr.jewels.byridham@gmail.com"
+    }).then(() => console.log("Seller email sent"));
 
     localStorage.removeItem("krjewels_cart_backup");
     localStorage.removeItem("krjewels_payment_reference");
