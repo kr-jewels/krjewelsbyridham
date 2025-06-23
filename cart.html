@@ -91,6 +91,8 @@
   </footer>
   <script>
     let cart = JSON.parse(localStorage.getItem('krjewels_cart')) || [];
+    const SHIPPING_CHARGE = 1;
+
     function updateCart() {
       const tbody = document.querySelector("#cart-table tbody");
       const summary = document.getElementById("summary");
@@ -113,20 +115,23 @@
             <td><button onclick="removeItem(${index})">Remove</button></td>
           </tr>`;
       });
-      summary.textContent = `Total: ₹${total} + ₹60 shipping = ₹${total + 60}`;
+      summary.textContent = `Total: ₹${total} + ₹${SHIPPING_CHARGE} shipping = ₹${total + SHIPPING_CHARGE}`;
       document.getElementById("cart-count").textContent = cart.length;
     }
+
     function changeQty(index, delta) {
       cart[index].quantity = (cart[index].quantity || 1) + delta;
       if (cart[index].quantity <= 0) cart.splice(index, 1);
       localStorage.setItem("krjewels_cart", JSON.stringify(cart));
       updateCart();
     }
+
     function removeItem(index) {
       cart.splice(index, 1);
       localStorage.setItem("krjewels_cart", JSON.stringify(cart));
       updateCart();
     }
+
     function placeOrder() {
       const name = document.getElementById("name").value.trim();
       const address = document.getElementById("address").value.trim();
@@ -143,11 +148,12 @@
         total += subtotal;
         message += `- ${item.name} (₹${item.price} x ${qty}) = ₹${subtotal}\n`;
       });
-      message += `\nSubtotal: ₹${total}\nShipping: ₹60\nTotal: ₹${total + 60}`;
+      message += `\nSubtotal: ₹${total}\nShipping: ₹${SHIPPING_CHARGE}\nTotal: ₹${total + SHIPPING_CHARGE}`;
       window.location.href = `https://wa.me/918290069395?text=${encodeURIComponent(message)}`;
       localStorage.removeItem("krjewels_cart");
       setTimeout(() => window.location.href = "thankyou.html", 1000);
     }
+
     function checkout() {
       const name = document.getElementById("name").value.trim();
       const address = document.getElementById("address").value.trim();
@@ -159,8 +165,10 @@
       localStorage.setItem('krjewels_customer_email', email);
       localStorage.setItem('krjewels_customer_contact', contact);
       localStorage.setItem('krjewels_cart_backup', JSON.stringify(cart));
+
       let total = cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
-      const finalAmount = (total + 60) * 100;
+      const finalAmount = (total + SHIPPING_CHARGE) * 100;
+
       const options = {
         key: "rzp_live_vP91gFGgXJfgfF",
         amount: finalAmount,
@@ -171,18 +179,21 @@
         handler: function (response) {
           const ref = response.razorpay_payment_id;
           localStorage.setItem("krjewels_payment_reference", ref);
+
           const emailData = {
             order_id: ref,
             orders: cart.map(item => ({ name: item.name, units: item.quantity || 1, price: item.price })),
             cost: {
-              shipping: 60,
+              shipping: SHIPPING_CHARGE,
               tax: 0,
-              total: total + 60
+              total: total + SHIPPING_CHARGE
             }
           };
+
           emailjs.send("service_jgrdhox", "template_cmq7op6", emailData)
             .then(() => console.log("Invoice email sent"))
             .catch(err => console.error("EmailJS error", err));
+
           let msg = `*New Paid Order - KR Jewels*\n*Name:* ${name}\n*Contact:* ${contact}\n*Address:* ${address}`;
           if (email) msg += `\n*Email:* ${email}`;
           msg += `\n*Payment Reference:* ${ref}\n\n*Order Details:*\n`;
@@ -191,7 +202,8 @@
             const subtotal = qty * item.price;
             msg += `- ${item.name} (₹${item.price} x ${qty}) = ₹${subtotal}\n`;
           });
-          msg += `\nSubtotal: ₹${total}\nShipping: ₹60\nTotal: ₹${total + 60}`;
+          msg += `\nSubtotal: ₹${total}\nShipping: ₹${SHIPPING_CHARGE}\nTotal: ₹${total + SHIPPING_CHARGE}`;
+
           window.open(`https://wa.me/918290069395?text=${encodeURIComponent(msg)}`, '_blank');
           window.open(`https://wa.me/91${contact}?text=${encodeURIComponent(msg)}`, '_blank');
           window.location.href = "thankyou.html";
@@ -199,8 +211,10 @@
         prefill: { name, email, contact },
         theme: { color: "#c96d85" }
       };
+
       new Razorpay(options).open();
     }
+
     updateCart();
   </script>
 </body>
