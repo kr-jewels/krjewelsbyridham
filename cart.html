@@ -91,7 +91,7 @@
   </footer>
   <script>
     let cart = JSON.parse(localStorage.getItem('krjewels_cart')) || [];
-    const SHIPPING_CHARGE = 1;
+    const SHIPPING_CHARGE = 60;  <!-- Change this only for cart price change -->
 
     function updateCart() {
       const tbody = document.querySelector("#cart-table tbody");
