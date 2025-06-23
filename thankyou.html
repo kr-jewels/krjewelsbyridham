@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Thank You - KR Jewels</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>emailjs.init("rNGaRVsFRpD5PzSeC");</script>
   <style>
     .summary-container {
       max-width: 800px;
@@ -54,34 +56,26 @@
   </style>
 </head>
 <body>
-  <!-- Floating cart icon -->
   <div class="cart-floating">
-    <a href="cart.html" title="View Cart">
-      🛍️ Cart <span id="cart-count">0</span>
-    </a>
+    <a href="cart.html" title="View Cart"> 🛍️ Cart <span id="cart-count">0</span> </a>
   </div>
-
-  <!-- Announcement -->
   <div class="announcement-bar">
     <marquee behavior="scroll" direction="left">
       🎉 Thank you for shopping with KR Jewels by Ridham 🎉
     </marquee>
   </div>
-
-  <!-- Header -->
   <header>
     <div class="branding-bar" style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
       <img src="KR%20by%20ridham%20logo.jpg" alt="KR Jewels Logo" style="height: 150px; width: 150px; object-fit: contain;" />
       <h1 style="margin: 0; font-size: 2em; color: #b3568d;">KR JEWELS by Ridham</h1>
     </div>
-
     <nav class="main-nav" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
       <a href="about.html">Our Story</a>
       <a href="contact.html">Contact</a>
+      <a href="blogs.html">Blog</a>
     </nav>
-
     <div class="category-bar">
       <a href="products.html?filter=Bestseller">Bestsellers</a>
       <a href="products.html?filter=New Release">New Releases</a>
@@ -91,10 +85,9 @@
       <a href="products.html?filter=Pendants">Pendants</a>
       <a href="products.html?filter=Gold-Plated">Gold-Plated</a>
       <a href="products.html?filter=Anti-Tarnish">Anti-Tarnish</a>
+      <a href="products.html?filter=Unisex">Unisex</a>
     </div>
   </header>
-
-  <!-- Thank You Content -->
   <main>
     <div class="summary-container" id="receipt">
       <h2>🎉 Thank You for Your Order!</h2>
@@ -104,25 +97,16 @@
       <p><strong>Email:</strong> <span id="customer-email"></span></p>
       <p><strong>Contact:</strong> <span id="customer-contact"></span></p>
       <p><strong>Payment Reference No:</strong> <span id="payment-ref"></span></p>
-
       <table id="product-table">
         <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Qty</th>
-            <th>Subtotal</th>
-          </tr>
+          <tr><th>Product</th><th>Price</th><th>Qty</th><th>Subtotal</th></tr>
         </thead>
         <tbody></tbody>
       </table>
       <p class="total" id="total-amount"></p>
-
       <button class="print-button" onclick="window.print()">🖨️ Print Receipt</button>
     </div>
   </main>
-
-  <!-- Footer -->
   <footer>
     <p>
       📞 Call us: 8290069395 |
@@ -132,7 +116,6 @@
       © 2025 KR Jewels by Ridham. All rights reserved.
     </p>
   </footer>
-
   <script>
     const name = localStorage.getItem("krjewels_customer_name") || "-";
     const address = localStorage.getItem("krjewels_customer_address") || "-";
@@ -147,18 +130,18 @@
     document.getElementById("customer-contact").textContent = contact;
     document.getElementById("payment-ref").textContent = ref;
 
-    // Generate order number from initials + contact
     const initials = name.split(" ").map(w => w[0]).join("").toUpperCase();
     const digits = contact.slice(-4);
     document.getElementById("order-number").textContent = initials + digits;
 
-    // Fill product table
     const tbody = document.querySelector("#product-table tbody");
     let total = 0;
+    const items = [];
     cart.forEach(item => {
       const qty = item.quantity || 1;
       const subtotal = item.price * qty;
       total += subtotal;
+      items.push({ name: item.name, units: qty, price: item.price });
       tbody.innerHTML += `
         <tr>
           <td>${item.name}</td>
@@ -171,11 +154,21 @@
     total += 60;
     document.getElementById("total-amount").textContent = `Total: ₹${total} (including ₹60 shipping)`;
 
-    // Clear cart backup
+    if (email && email.includes("@")) {
+      emailjs.send("service_jgrdhox", "template_cmq7op6", {
+        order_id: ref,
+        to_email: email,
+        orders: items,
+        cost: {
+          shipping: 60,
+          tax: 0,
+          total: total
+        }
+      }).then(() => console.log("Customer email sent"));
+    }
+
     localStorage.removeItem("krjewels_cart_backup");
     localStorage.removeItem("krjewels_payment_reference");
-
-    // Update cart count to 0
     document.getElementById("cart-count").textContent = "0";
   </script>
 </body>

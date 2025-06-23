@@ -3,7 +3,7 @@
   "name": "Golden Spark",
   "price": 799,
   "originalPrice": 999,
-  "image": "bracelet1.jpg",
+  "image": "images/bracelet1.jpg",
   "stockStatus": "Only 1 Left",
   "categories": ["Bracelets"],
   "tags": ["Bestseller", "Discount"],
@@ -12,7 +12,7 @@
   {
     "name": "Rust-Free Shine",
     "price": 899,
-    "image": "bracelet2.jpg",
+    "image": "images/bracelet2.jpg",
     "stockStatus": "In Stock",
     "categories": ["Bracelets"],
     "tags": ["Anti-Tarnish", "New Release"],
@@ -21,7 +21,7 @@
   {
     "name": "Pearl Drop Earrings",
     "price": 699,
-    "image": "earring1.jpg",
+    "image": "images/earring1.jpg",
     "stockStatus": "Limited Stock",
     "categories": ["Earrings"],
     "tags": ["Gold-Plated"],
@@ -30,7 +30,7 @@
   {
     "name": "Rose Quartz Pendant",
     "price": 499,
-    "image": "pendant1.jpg",
+    "image": "images/pendant1.jpg",
     "stockStatus": "Sold Out",
     "categories": ["Pendants"],
     "tags": ["Discount"],
@@ -40,7 +40,7 @@
   {
     "name": "Royal Gold Cuff",
     "price": 1199,
-    "image": "bracelet3.jpg",
+    "image": "images/bracelet3.jpg",
     "categories": ["Bracelets"],
     "tags": ["Gold-Plated", "Bestseller"],
     "description": "Elegant gold-toned bracelet perfect for every occasion."
