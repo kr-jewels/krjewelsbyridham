@@ -1,13 +1,13 @@
-// 📦 KR Jewels - Shared Inventory Script
+// 📦 KR Jewels - Shared Inventory Script (localStorage version)
 
-// Get the current cart from sessionStorage
+// Get the current cart from localStorage
 function getCart() {
-  return JSON.parse(sessionStorage.getItem("cart") || "[]");
+  return JSON.parse(localStorage.getItem("eagleCart") || "[]");
 }
 
-// Save the cart to sessionStorage
+// Save the cart to localStorage
 function saveCart(cart) {
-  sessionStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("eagleCart", JSON.stringify(cart));
 }
 
 // Add an item to the cart
@@ -23,7 +23,7 @@ function addItemToCart(productCode, sellingPrice, status) {
 
 // Clear cart (after bill submission)
 function clearCart() {
-  sessionStorage.removeItem("cart");
+  localStorage.removeItem("eagleCart");
 }
 
 // Display cart in table (for billing page)
@@ -32,13 +32,16 @@ function displayCartTable(tableId) {
   const table = document.getElementById(tableId);
   let totalPrice = 0;
 
-  cart.forEach((item, index) => {
-    const row = table.insertRow();
+  table.innerHTML = ""; // Clear previous rows
+
+  cart.forEach(item => {
+    const row = document.createElement("tr");
     row.innerHTML = `
-      <td>${item.productCode}</td>
-      <td>₹${item.sellingPrice.toFixed(2)}</td>
-      <td>${item.status}</td>
+      <td class="p-2">${item.productCode}</td>
+      <td class="p-2">₹${item.sellingPrice.toFixed(2)}</td>
+      <td class="p-2">${item.status}</td>
     `;
+    table.appendChild(row);
     totalPrice += item.sellingPrice;
   });
 
@@ -74,7 +77,7 @@ async function submitBill(backendURL, customerName, customerContact) {
     if (result.status === "success") {
       alert("Bill submitted successfully!");
       clearCart();
-      window.location.href = "manageinventoryindex.html"; // Redirect back to start
+      window.location.href = "manageinventoryindex.html"; // Redirect back to home
     } else {
       console.error(result);
       alert("Submission failed: " + result.error);
@@ -85,7 +88,7 @@ async function submitBill(backendURL, customerName, customerContact) {
   }
 }
 
-// For debugging
+// For debugging in console
 function printCart() {
   console.log("Current Cart:", getCart());
 }
