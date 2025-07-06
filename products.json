@@ -1,48 +1,1155 @@
 [
   {
-  "name": "Golden Spark",
-  "price": 500,
-  "originalPrice": 999,
-  "image": "images/bracelet1.jpg",
-  "stockStatus": "Only 1 Left",
-  "categories": ["Bracelets"],
-  "tags": ["Bestseller", "Discount"],
-  "description": "Elegant gold-toned bracelet perfect for every occasion."
+    "id": "KR14B280",
+    "name": "Moonlight Drop",
+    "price": 380.0,
+    "image": "images/e1.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "For the days she chooses grace over noise — these dome pearl studs celebrate her quiet strength and timeless elegance."
   },
   {
-    "name": "Rust-Free Shine",
-    "price": 899,
-    "image": "images/bracelet2.jpg",
+    "id": "KR06B230",
+    "name": "Molten Hoop Earrings",
+    "price": 330.0,
+    "image": "images/e2.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Born from her bold spirit — these molten hoops are made for moments when she owns the room, unapologetically."
+  },
+  {
+    "id": "KR02B300",
+    "name": "Flower Tassel Earrings",
+    "price": 400.0,
+    "image": "images/e3.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "Like the moment she blossoms — these floral tassels capture the joy of becoming, blooming, and shining on her own terms."
+  },
+  {
+    "id": "KR48B244",
+    "name": "Oval Drop Hoops Earrings",
+    "price": 344.0,
+    "image": "images/e4.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "Crafted for evenings that turn into memories — these elegant ovals are her companion through warmth, nostalgia, and quiet confidence."
+  },
+  {
+    "id": "KR15B290",
+    "name": "Serenity Frame Hoops",
+    "price": 390.0,
+    "image": "images/e5.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "A quiet moment of grace — these white enamel-framed hoops echo her calm confidence, perfect for the days she rewrites her own story"
+  },
+  {
+    "id": "KR15B290",
+    "name": "Teardrop Earrings",
+    "price": 390.0,
+    "image": "images/e6.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "In a story of joy, of growth, or of silent strength, wear your journey with pride "
+  },
+  {
+    "id": "KR10B246",
+    "name": "Snail Coil Earrings",
+    "price": 346.0,
+    "image": "images/e7.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "For the woman who’s ever-evolving — these spiral coils capture the journey within, where every twist tells a story of resilience and rebirth."
+  },
+  {
+    "id": "KR74B170",
+    "name": "Pause & Poise Studs",
+    "price": 270.0,
+    "image": "images/e8.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "For moments between chaos and calm — these delicate comma studs remind her to pause, breathe, and own her space with quiet poise."
+  },
+  {
+    "id": "KR35B236",
+    "name": "Orbit Whisper – Gold Spiral Stud Earrings",
+    "price": 336.0,
+    "image": "images/e9.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Inspired by the orbit of her thoughts — this one-revolution spiral with a golden sphere reflects her centered grace in a world that keeps spinning."
+  },
+  {
+    "id": "KR74B170",
+    "name": "Ivory Bloom Trio – Floral Gold Stud Earrings",
+    "price": 270.0,
+    "image": "images/e10.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Three delicate white blooms, kissed with golden centers — made for soft beginnings and bold returns."
+  },
+  {
+    "id": "KR73B148",
+    "name": "Auric Curve – Gold Dome Hoop Earrings",
+    "price": 248.0,
+    "image": "images/e11.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "Bold curves, gold shine — made for days when her presence speaks before she does"
+  },
+  {
+    "id": "KR12B322",
+    "name": "Crystal Flora – Golden AD Studs",
+    "price": 422.0,
+    "image": "images/e13.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Petals kissed with shimmer, leaves traced in golden — for moments when she wants to glow without trying."
+  },
+  {
+    "id": "KR11B344",
+    "name": "Verdant Crest – Gold Leaf Curve Studs",
+    "price": 444.0,
+    "image": "images/e14.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Leaves curl into form with quiet power — crafted for her graceful rise, one season at a time."
+  },
+  {
+    "id": "KR03B194",
+    "name": "Lustre Frame – Gold & AD Square Stud Earrings",
+    "price": 294.0,
+    "image": "images/e15.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "A golden frame cradles a crystal core — bold geometry with just the right shimmer."
+  },
+  {
+    "id": "KR62B432",
+    "name": "Bloombound – Gold Floral AD Studs",
+    "price": 532.0,
+    "image": "images/e16.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "Not fully bloomed, yet already radiant — crafted for the woman who shines in every phase."
+  },
+  {
+    "id": "KR77B186",
+    "name": "Triloop Gleam – Mixed Metal Stud Earrings",
+    "price": 286.0,
+    "image": "images/e17.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Three loops. Three shades. One energy — for the woman who holds multitudes in motion."
+  },
+  {
+    "id": "KR08B230",
+    "name": "Linear Luxe – Twin Square Drop Earrings",
+    "price": 330.0,
+    "image": "images/e21.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Clean lines. Pure gold. Quiet luxury for the woman who doesn’t need to speak to be seen."
+  },
+  {
+    "id": "KR01B300",
+    "name": "Echo Layers – Textured Trio Drop Earrings",
+    "price": 400.0,
+    "image": "images/e22.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Raw Golden look. Organic dents. Layers that echo her depth — imperfect, unforgettable."
+  },
+  {
+    "id": "KR06B230",
+    "name": "Bound & Bold – Textured Drop Hoop Earrings",
+    "price": 330.0,
+    "image": "images/e23.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "A rugged square meets a golden ring — for the woman who defines her own edges."
+  },
+  {
+    "id": "KR05B230",
+    "name": "Golden Echo – Textured Double Disc Earrings",
+    "price": 330.0,
+    "image": "images/e24.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Earrings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "Two golden circles, organically textured — made for the woman whose silence speaks volumes."
+  },
+  {
+    "id": "KR159E500#7",
+    "name": "Hearts Aligned – AD Love Ring",
+    "price": 600.0,
+    "image": "images/r1.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Two hearts, one sparkle — for moments when love aligns within and beyond."
+  },
+  {
+    "id": "KR154CB150#7",
+    "name": "Silver Icon – Cartier Band Ring",
+    "price": 250.0,
+    "image": "images/r2.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Unapologetically classic — for the one who wears confidence like metal."
+  },
+  {
+    "id": "KR154CB150#7",
+    "name": "Bronze Luxe – Copper Tone Cartier Ring",
+    "price": 250.0,
+    "image": "images/r3.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "Warm, bold, unforgettable — a timeless band for modern moods."
+  },
+  {
+    "id": "KR154CB150#7",
+    "name": "Aurum Icon – Golden Cartier Band Ring",
+    "price": 250.0,
+    "image": "images/r4.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "Bold yet minimal — a gold-toned designer ring that speaks of quiet confidence and timeless taste."
+  },
+  {
+    "id": "KR165CI600#7",
+    "name": "Twin Grace – AD Line & Gem Ring",
+    "price": 320.0,
+    "image": "images/r5.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Two paths, one sparkle — lined with grace and crowned with clarity."
+  },
+  {
+    "id": "KR162CH600#7",
+    "name": "Crown & Carve – Twin Band AD Ring",
+    "price": 700.0,
+    "image": "images/r6.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "A bold gem and sculpted sparkle — two stories, one ring, all hers."
+  },
+  {
+    "id": "KR155DB600#8",
+    "name": "Trilove Gleam – Heart Gemstone Ring",
+    "price": 700.0,
+    "image": "images/r8.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "A heart held by halos — for love that’s centered, supported, and shining through."
+  },
+  {
+    "id": "KR151EH500#0",
+    "name": "Stairlight – Square Gem Art Deco Ring",
+    "price": 600.0,
+    "image": "images/r9.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "Clean lines, sharp edges — enamel and diamonds climb together toward quiet brilliance."
+  },
+  {
+    "id": "KR165CI600#8",
+    "name": "Twirl & Glow – Delicate Dual AD Ring",
+    "price": 700.0,
+    "image": "images/r10.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "New Release"
+    ],
+    "description": "A spiral of sparkle meets a whisper of shine — crafted for her soft power and layered grace."
+  },
+  {
+    "id": "KR159E500#7",
+    "name": "Aim & Align – V Arrow Gold Ring",
+    "price": 600.0,
+    "image": "images/r11.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "Where vision meets direction — a gold-plated V band with an arrow of purpose."
+  },
+  {
+    "id": "KR159E500 #7",
+    "name": "Glint Curve – Double Band U-Design Ring",
+    "price": 600.0,
+    "image": "images/r12.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish",
+      "Bestseller"
+    ],
+    "description": "An abstract curve, lit with shimmer — for the woman who bends norms, beautifully."
+  },
+  {
+    "id": "KR159E500#9",
+    "name": "Heartlink – Dual Heart Chain Ring",
+    "price": 600.0,
+    "image": "images/r13.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Two hearts meet in quiet balance — a symbol of love that chooses, not chases."
+  },
+  {
+    "id": "KR164CG600 #6",
+    "name": "Petal Gleam – Triple Bloom AD Ring",
+    "price": 700.0,
+    "image": "images/r14.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Three petals, all aglow — crafted for her soft shine and inner strength."
+  },
+  {
+    "id": "KR151EH500#0",
+    "name": "Gleamline – Square AD Eternity Band",
+    "price": 600.0,
+    "image": "images/r15.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A sleek band of square-cut shimmer — for grace that never fades."
+  },
+  {
+    "id": "KR159E500#8",
+    "name": "Shape & Shine – Twin Curve AD Ring",
+    "price": 600.0,
+    "image": "images/r16.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Squares meet circles in a graceful arc — a ring that celebrates contrast in perfect harmony."
+  },
+  {
+    "id": "KR160E506#7",
+    "name": "Dewdrop Grace – Curved Band Gemstone Ring",
+    "price": 600.0,
+    "image": "images/r17.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A flowing band cradles a teardrop gem — for the woman who wears elegance like a second skin."
+  },
+  {
+    "id": "KR151EH500#0",
+    "name": "Twinkle Twist – AD Spiral Ring",
+    "price": 600.0,
+    "image": "images/r18.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A graceful spiral dotted with shimmer — for the woman who shines as she grows."
+  },
+  {
+    "id": "KR153FG400",
+    "name": "Melted Love – Gold Heart Statement Ring",
+    "price": 500.0,
+    "image": "images/r19.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A heart shaped by heat — imperfect, powerful, and real, just like her story."
+  },
+  {
+    "id": "KR166DC550#8",
+    "name": "Triloom – AD Branch Split Ring",
+    "price": 650.0,
+    "image": "images/r20.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Three stems, one flow — a design that speaks of strength in separation and beauty in unity."
+  },
+  {
+    "id": "KR16DA600#8",
+    "name": "Noor Halo – Pearl Center AD Ring",
+    "price": 700.0,
+    "image": "images/r21.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A glowing moti crowned with shimmer — for elegance that never fades, only deepens."
+  },
+  {
+    "id": "snake",
+    "name": "Viper Gleam – AD Snake Head Ring",
+    "price": null,
+    "image": "images/r22.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A serpent’s gaze with shimmering strength — for the woman who strikes with grace."
+  },
+  {
+    "id": "KR158DG750#0",
+    "name": "Eterna Duo – White & Gold Pearl Ring",
+    "price": 850.0,
+    "image": "images/r23.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Two pearls, two tones — for the woman who balances softness and strength in perfect rhythm."
+  },
+  {
+    "id": "KR155DB600#6",
+    "name": "Lustre Dot – Center Gemstone AD Ring",
+    "price": 700.0,
+    "image": "images/r24.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A single radiant gem, framed in shimmer — made for her quiet glow and lasting impression."
+  },
+  {
+    "id": "KR152DE600#18 HD\nKR152DE600#16",
+    "name": "Crest & Core – Dual Band AD Ring",
+    "price": 700.0,
+    "image": "images/r25.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A crowned V of shimmer, a gem at its heart — for the woman who leads with grace."
+  },
+  {
+    "id": "KR161CH600#8_2",
+    "name": "Gleam Bow – AD Studded Copper Ring",
+    "price": 700.0,
+    "image": "images/r26.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A twinkle-tied bow in warm copper — for the woman who wraps every day in grace."
+  },
+  {
+    "id": "KR155DB600#7_2",
+    "name": "Stellar Bloom – AD Tipped Floral Ring",
+    "price": 700.0,
+    "image": "images/r27.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Delicate stems, radiant tips — a blooming spark for the woman who lights up every room."
+  },
+  {
+    "id": "KR1587DC650#7",
+    "name": "Twirlstone – Spiral Wrapped Gem Ring",
+    "price": 750.0,
+    "image": "images/r28.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A gem cradled in motion — for the woman who carries elegance in every turn."
+  },
+  {
+    "id": "KR151EH500#0",
+    "name": "Gilded Clasp – Belt Buckle AD Ring",
+    "price": 600.0,
+    "image": "images/r29.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A bold clasp of sparkle — for the woman who owns her style like she locks her power."
+  },
+  {
+    "id": "KR165CI600#7",
+    "name": "X-Line Gleam – AD Studded Cross Band Ring",
+    "price": 700.0,
+    "image": "images/r30.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Lines that cross, sparkle that stays — for the woman who stands out by design."
+  },
+  {
+    "id": "KR151EH500#0",
+    "name": "Dual Radiance – Square Stone & AD Ring",
+    "price": 600.0,
+    "image": "images/r31.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A bold gem and a shimmered band — for the woman who balances strength with sparkle."
+  },
+  {
+    "id": "KR157DC650#7",
+    "name": "Leaflight Duo – Gold & AD Twin Band Ring",
+    "price": 750.0,
+    "image": "images/r32.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Two leaves, two textures — one sparkles, one breathes. A ring made for quiet power."
+  },
+  {
+    "id": "KR155DB600#6",
+    "name": "Radiant Embrace – Center Gem with Curved Accents",
+    "price": 700.0,
+    "image": "images/r33.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A bold gem cradled by graceful curves — made for the woman whose glow draws everything in."
+  },
+  {
+    "id": "KR151EH500#0",
+    "name": "Victory Gleam – V Front AD Ring",
+    "price": 600.0,
+    "image": "images/r34.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A sharp V traced in shimmer — for the woman who moves forward, always glowing."
+  },
+  {
+    "id": "KR151EH500#0",
+    "name": "Twilight Bloom – Abstract Leaf AD Ring",
+    "price": 600.0,
+    "image": "images/r35.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A curvy leaf kissed with shimmer — for the woman whose elegance grows in every direction."
+  },
+  {
+    "id": "KR152DE600#18",
+    "name": "Evergleam – AD Eternity Band",
+    "price": 700.0,
+    "image": "images/r36.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Simple. Sparkling. Always in style — for everyday elegance that never fades."
+  },
+  {
+    "id": "K159E500#0",
+    "name": "BloomTwist – Dual Flower Spiral Ring",
+    "price": 600.0,
+    "image": "images/r37.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Golden and enamel petals swirl into bloom — for the woman whose beauty unfolds in motion."
+  },
+  {
+    "id": "KR163DA600#7",
+    "name": "GemAura – Gemstone Border Ring",
+    "price": 700.0,
+    "image": "images/r38.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A radiant gem framed in sleek metal — for the woman who carries light wherever she goes."
+  },
+  {
+    "id": "KR156CD800#7",
+    "name": "Scarlet Veil – Red Flower AD Leaf Ring",
+    "price": 900.0,
+    "image": "images/r39.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Rings"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A blooming red flower crowned with shimmering AD leaves — for the woman whose passion and grace blossom every day."
+  },
+  {
+    "id": "255-82:150",
+    "name": "Regal Roar – Lion Emblem Pendant",
+    "price": 400.0,
+    "image": "images/p1.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Pendants"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Bold and fierce, this lion pendant embodies the fearless spirit of the modern woman — wear your power proudly every day."
+  },
+  {
+    "id": "80-1433:115_2",
+    "name": "Stellar Bloom – Triple Star AD Pendant",
+    "price": 350.0,
+    "image": "images/p2.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Pendants"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Three starry flowers shimmer with tiny ADs — for the woman whose light blooms quietly, yet brilliantly, every day."
+  },
+  {
+    "id": "80-1432:108",
+    "name": "CharmKnot – Bow Pendant",
+    "price": 310.0,
+    "image": "images/p3.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Pendants"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A playful bow with a hint of sparkle — for the woman who ties joy into every little moment of her day."
+  },
+  {
+    "id": "80-1432:108",
+    "name": "Verdant Halo – Green Enamel Flare Pendant",
+    "price": 310.0,
+    "image": "images/p4.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Pendants"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Sun-kissed flares circle a green enamel glow — for the woman whose warmth radiates with calm, every single day."
+  },
+  {
+    "id": "80-1432:95",
+    "name": "GildOval – Enamel Frame Pendant",
+    "price": 300.0,
+    "image": "images/p5.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Pendants"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A golden textured rectangle cradles a soft enamel oval — for the woman who balances strength with subtle elegance."
+  },
+  {
+    "id": "80-1432:108",
+    "name": "MistLeaf – Enamel Gradient Pendant",
+    "price": 330.0,
+    "image": "images/p6.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Pendants"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A gentle leaf shaded in white and grey enamel — for the woman who finds beauty in every calm and in-between."
+  },
+  {
+    "id": "80-1431:95",
+    "name": "SunBlush – Petite Bloom Pendant",
+    "price": 300.0,
+    "image": "images/p7.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Pendants"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A tiny golden flower with four soft petals — for the woman who carries quiet grace in every heartbeat."
+  },
+  {
+    "id": "80-1435:125",
+    "name": "EverDew – Teardrop Enamel Pendant",
+    "price": 350.0,
+    "image": "images/p8.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Pendants"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A deep green enamel drop framed in metal — for the woman whose strength flows as gracefully as her style."
+  },
+  {
+    "id": "80-1437:145",
+    "name": "HeartPetal – Dual Heart Floral Pendant",
+    "price": 390.0,
+    "image": "images/p9.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Pendants"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Two hearts and a blooming flower entwined — for the woman who loves deeply, blooms freely, and gives endlessly."
+  },
+  {
+    "id": "3",
+    "name": "LunaClover – White Clover Chain Bracelet",
+    "price": 400.0,
+    "image": "images/b1.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Bracelets"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Delicate white clovers linked in harmony — for the woman who carries quiet luck and gentle charm wherever she goes."
+  },
+  {
+    "id": "184-2910: 100",
+    "name": "NoirBliss – Dual Clover Charm Bracelet",
+    "price": 300.0,
+    "image": "images/b2.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Bracelets"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "Black and white clovers dance in contrast — for the woman who embraces both her calm and her bold in perfect rhythm"
+  },
+  {
+    "id": "80-1406:115",
+    "name": "GleamBloom – Gem Floral Chain Bracelet",
+    "price": 330.0,
+    "image": "images/b3.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Bracelets"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A golden bloom with a shining gem at its heart — for the woman whose inner glow blossoms in every little moment."
+  },
+  {
+    "id": "80-1405:106",
+    "name": "ShineClover – Hollow AD Charm Bracelet",
+    "price": 312.0,
+    "image": "images/b4.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Bracelets"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "An open clover traced with tiny ADs — for the woman who sparkles softly, yet leaves a lasting mark wherever she goes."
+  },
+  {
+    "id": "3",
+    "name": "MidnightClover – Black Clover Chain Bracelet",
+    "price": 350.0,
+    "image": "images/b5.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Bracelets"
+    ],
+    "tags": [
+      "Anti-Tarnish"
+    ],
+    "description": "A string of black clovers, sleek and striking — for the woman whose mystery and grace unfold with quiet confidence."
+  },
+  {
+    "id": "80-1407:115",
+    "name": "EdgeGlow – White Enamel Unisex Bracelet",
+    "price": 330.0,
+    "image": "images/b6.jpg",
+    "stockStatus": "In Stock",
+    "categories": [
+      "Bracelets"
+    ],
+    "tags": [
+      "Anti-Tarnish", "Unisex"
+    ],
+    "description": "A clean enamel core framed by bold metal zaali — for the soul that blends softness with strength, every single day."
+  },
+  {
+    "id": "",
+    "name": "BondCuff – Screw Link Unisex Bracelet",
+    "price": 350.0,
+    "image": "images/b7.jpg",
+    "stockStatus": "In Stock",
+    "categories": ["Bracelets", "Unisex"],
+    "tags": ["Anti-Tarnish"],
+    "description": "Sleek, secure, and unbreakable — for the ones who wear connection like a promise, bold and timeless."
+  },
+  {
+    "id": "",
+    "name": "RoyalMark – Lion Crest Unisex Bracelet",
+    "price": 700.0,
+    "image": "images/b8.jpg",
     "stockStatus": "In Stock",
     "categories": ["Bracelets"],
-    "tags": ["Anti-Tarnish", "New Release"],
-    "description": "Elegant gold-toned bracelet perfect for every occasion."
+    "tags": ["Anti-Tarnish", "Unisex"],
+    "description": "A fierce lion crowned in metal — for the one who leads with silent strength and wears their power with pride."
   },
   {
-    "name": "Pearl Drop Earrings",
-    "price": 699,
-    "image": "images/earring1.jpg",
-    "stockStatus": "Limited Stock",
-    "categories": ["Earrings"],
-    "tags": ["Gold-Plated"],
-    "description": "Elegant gold-toned bracelet perfect for every occasion."
-  },
-  {
-    "name": "Rose Quartz Pendant",
-    "price": 499,
-    "image": "images/pendant1.jpg",
-    "stockStatus": "Sold Out",
-    "categories": ["Pendants"],
-    "tags": ["Discount"],
-    "description": "Elegant gold-toned bracelet perfect for every occasion."
-    
-  },
-  {
-    "name": "Royal Gold Cuff",
-    "price": 1199,
-    "image": "images/bracelet3.jpg",
+    "id": "",
+    "name": "ZenBand – Bamboo Stem Unisex Bracelet",
+    "price": 700.0,
+    "image": "images/b9.jpg",
+    "stockStatus": "In Stock",
     "categories": ["Bracelets"],
-    "tags": ["Gold-Plated", "Bestseller"],
-    "description": "Elegant gold-toned bracelet perfect for every occasion."
+    "tags": ["Anti-Tarnish", "Unisex"],
+    "description": "Inspired by nature’s quiet strength — for the one who bends, never breaks, and stands rooted in every season."
+  },
+  {
+    "id": "",
+    "name": "OrbitLine – Sphere Link Unisex Bracelet",
+    "price": 700.0,
+    "image": "images/b10.jpg",
+    "stockStatus": "In Stock",
+    "categories": ["Bracelets"],
+    "tags": ["Anti-Tarnish", "Unisex"],
+    "description": "A seamless line of textured spheres — for the one whose energy flows effortlessly, calm yet captivating."
+  },
+  {
+    "id": "",
+    "name": "TwinkleVine – Star Bloom & Clover Bracelet",
+    "price": 700.0,
+    "image": "images/b11.jpg",
+    "stockStatus": "In Stock",
+    "categories": ["Bracelets"],
+    "tags": ["Anti-Tarnish"],
+    "description": "A radiant star-flower with sparkling ADs, linked with white clovers — for the woman whose charm feels like a quiet wish come true."
+  },
+  {
+    "id": "",
+    "name": "CrimsonCharm – Heart, Square & Clover Bracelet",
+    "price": 700.0,
+    "image": "images/b12.jpg",
+    "stockStatus": "In Stock",
+    "categories": ["Bracelets"],
+    "tags": ["Anti-Tarnish"],
+    "description": "A red gem heart, a fiery square, and a black clover — for the woman who loves fiercely, thinks boldly, and owns every shade of her soul."
+  },
+  {
+    "id": "",
+    "name": "MystiClover – Enamel & Symbol Bracelet",
+    "price": 700.0,
+    "image": "images/b13.jpg",
+    "stockStatus": "In Stock",
+    "categories": ["Bracelets"],
+    "tags": ["Anti-Tarnish"],
+    "description": "A golden clover set in deep black enamel, etched with hidden symbols — for the one who carries meaning behind every move and magic in every glance."
+  },
+  {
+    "id": "",
+    "name": "DuoCharm – Clover & AD Link Bracelet",
+    "price": 700.0,
+    "image": "images/b14.jpg",
+    "stockStatus": "In Stock",
+    "categories": ["Bracelets"],
+    "tags": ["Anti-Tarnish"],
+    "description": "Black and white clovers meet a sparkling AD square — for the woman who balances contrast with grace and shines in her own rhythm."
+  },
+  {
+    "id": "",
+    "name": "TwinGrace – Clover & AD Stem Bracelet",
+    "price": 700.0,
+    "image": "images/b15.jpg",
+    "stockStatus": "In Stock",
+    "categories": ["Bracelets"],
+    "tags": ["Anti-Tarnish"],
+    "description": "A black and white clover paired with a shimmering AD stem — for the woman whose duality is her beauty, and every path she walks glows with purpose."
+  },
+  {
+    "id": "",
+    "name": "PurePetal – Heart Clover Bracelet",
+    "price": 700.0,
+    "image": "images/b16.jpg",
+    "stockStatus": "In Stock",
+    "categories": ["Bracelets"],
+    "tags": ["Anti-Tarnish"],
+    "description": "Delicate white heart-shaped petals form a clover of love — for the woman whose kindness blooms effortlessly in every gesture."
   }
 ]
