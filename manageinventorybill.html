@@ -59,33 +59,28 @@
         return;
       }
 
-      const payload = {
+      const payload = JSON.stringify({
         customerName: name,
         customerContact: contact,
         data: cart
-      };
+      });
 
-      const formData = new FormData();
-      formData.append("payload", JSON.stringify(payload));
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = BACKEND_URL;
+      form.style.display = "none";
 
-      fetch(BACKEND_URL, {
-        method: "POST",
-        body: formData
-      })
-        .then(res => res.json())
-        .then(result => {
-          if (result.status === "success") {
-            alert("Bill submitted successfully!");
-            clearCart();
-            window.location.href = "manageinventoryindex.html";
-          } else {
-            alert("Failed: " + result.error);
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          alert("Network error. Check your internet or backend.");
-        });
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "payload";
+      input.value = payload;
+
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+
+      // Optional: clear cart after submission
+      clearCart();
     }
   </script>
 </body>
