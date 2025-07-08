@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>KR by Ridham - Billing</title>
-  <script defer src="manageinventoryscript.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white p-6 font-sans min-h-screen">
@@ -88,23 +87,19 @@
         data: cart
       };
 
-      console.log("Submitting payload:", payload);
+      const formData = new FormData();
+      formData.append("payload", JSON.stringify(payload));
 
       fetch("https://script.google.com/macros/s/AKfycbykh-8vOv1McWwRTkaJX8jPHUyB346epVNXSmtGSh8zHvAfkM5RKO5OpuC6I_grTZ5b/exec", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: formData
       })
         .then(res => res.json())
         .then(data => {
           if (data.status === "success") {
             alert("Bill submitted successfully!");
-
-            // Clear cart
             localStorage.removeItem("eagleCart");
-            document.getElementById("billTableBody").innerHTML = "";
-            document.getElementById("totalItems").textContent = "0";
-            document.getElementById("totalPrice").textContent = "0.00";
+            location.reload(); // Refresh to clear the table
           } else {
             alert("Submission failed: " + (data.error || "Unknown error"));
           }
