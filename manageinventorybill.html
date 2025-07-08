@@ -52,15 +52,40 @@
     function handleSubmit() {
       const name = document.getElementById("customerName").value.trim();
       const contact = document.getElementById("customerContact").value.trim();
+      const cart = getCart();
 
-      console.log("Submitting payload:", {
-        origin: window.location.origin,
+      if (cart.length === 0) {
+        alert("Cart is empty.");
+        return;
+      }
+
+      const payload = {
         customerName: name,
         customerContact: contact,
-        data: getCart()
-      });
+        data: cart
+      };
 
-      submitBill(BACKEND_URL, name, contact);
+      const formData = new FormData();
+      formData.append("payload", JSON.stringify(payload));
+
+      fetch(BACKEND_URL, {
+        method: "POST",
+        body: formData
+      })
+        .then(res => res.json())
+        .then(result => {
+          if (result.status === "success") {
+            alert("Bill submitted successfully!");
+            clearCart();
+            window.location.href = "manageinventoryindex.html";
+          } else {
+            alert("Failed: " + result.error);
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Network error. Check your internet or backend.");
+        });
     }
   </script>
 </body>
