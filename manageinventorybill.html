@@ -72,7 +72,7 @@
       payloadInput.value = JSON.stringify(payload);
 
       try {
-        const res = await fetch("https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec", {
+        const res = await fetch("https://script.google.com/macros/s/AKfycbzDtvzWLOpGC9G1vkmEYAtkFp_w0UlEXm-DGm8WlU6MiRTSpVSuVRKfEpOBCdQ46Fjh1Q/exec", {
           method: "POST",
           body: new FormData(form)
         });
